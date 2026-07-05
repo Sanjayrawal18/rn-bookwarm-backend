@@ -62,7 +62,7 @@ router.get("/", protectRoute, async (req, res) => {
 
 router.get("/user", protectRoute, async (req, res) => {
   try {
-    const books = (await Book.find({ user: req.user._id })).toSorted({
+    const books = (await Book.find({ user: req.user._id })).sort({
       createdAt: -1,
     });
     res.json({ books });
